@@ -54,6 +54,37 @@ if(si<3||si==3){tmo=setTimeout(()=>{si++;stp2()},si==3?1800:2000)}
 else if(si==4){tik=setInterval(()=>{pg=Math.min(1,pg+.05);rt();if(pg>=1){clearInterval(tik);setTimeout(()=>{si=5;stp2()},500)}},350)}}
 function run(){clearTimeout(tmo);clearInterval(tik);si=0;pg=0;tt=[];stp2()}
 $('#replay').onclick=run;rt();new IntersectionObserver((e,o)=>{if(e[0].isIntersecting){run();o.disconnect()}},{threshold:.4}).observe($('#track'));
+
 // tickets (sample data)
 const T=[["#1042","Trattoria Verde","2× Fettuccine Alfredo","Placed","#8A3324","Mon 19:42 · waiting for a driver"],["#1043","Little Dumpling House","1× Pan-fried Dumplings","Preparing","#C28840","Mon 19:55 · Driver: Ravi"],["#1044","Masala Haveli","1× Mutton Curry","Picked up","#D36228","Mon 20:10 · Driver: Meera"],["#1045","Tadka Tiffins","2× Yellow Dal Tadka","Delivered","#6E6F33","Mon 20:21 · Driver: Ravi"]];
 $('#tk').innerHTML=T.map((t,i)=>`<div class="t1 rv" style="--r:${[-1.5,1,-.8,1.4][i]}deg;--d:${i}"><b>Order ${t[0]}</b><h3>${t[1]}</h3>${t[2]}<p><span class="st" style="background:${t[4]}">${t[3]}</span></p><p>${t[5]}</p></div>`).join('');watch($('#tk'));
+const LR = [
+  ["Customer",         "assets/icon-customer.png",   "Order food and follow it live.", "#F2725B"],
+  ["Restaurant",       "assets/icon-restaurant.png", "Manage the order queue.",        "#DAA520"],
+  ["Delivery partner", "assets/icon-delivery.png",   "Pick up and deliver orders.",    "#E8C39E"]
+];
+let role = 0;
+const fs = document.querySelector('#lf fieldset');
+
+// build the three role cards
+fs.insertAdjacentHTML('beforeend', LR.map((r, i) => `
+  <label class="opt" style="--c:${r[3]}">
+    <input type="radio" name="role" value="${i}" ${i ? '' : 'checked'}>
+    <div class="ic"><img src="${r[1]}" alt=""></div>
+    <h3>${r[0]}</h3><p>${r[2]}</p>
+  </label>`).join(''));
+
+// update the button when a role is picked
+fs.onchange = e => {
+  role = +e.target.value;
+  document.querySelector('#go').textContent = `Continue as ${LR[role][0]} →`;
+  document.querySelector('#lm').textContent = '';
+};
+
+// "log in": save the role and confirm
+document.querySelector('#lf').onsubmit = e => {
+  e.preventDefault();
+  try { localStorage.setItem('fooddispatch_prefs', JSON.stringify({ role: LR[role][0] })); } catch (_) {}
+  document.querySelector('#lm').textContent = `Logged in as ${LR[role][0]}. Your view is ready.`;
+  return false;
+};
