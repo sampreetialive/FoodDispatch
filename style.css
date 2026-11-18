@@ -114,6 +114,27 @@ ol.tl em{margin-left:auto;font-style:normal;font-size:.75rem;opacity:.7}
 .js .t1.rv.on{transform:rotate(var(--r))}
 .t1 b{display:block;font-size:.72rem;opacity:.7;font-weight:500}.t1 h3{font-family:var(--display);font-weight:400;font-size:1.15rem;margin:.5rem 0}
 .st{display:inline-block;border-radius:99px;padding:.2rem .7rem;font-size:.72rem;font-weight:600;color:#fff}.t1 p{margin:.6rem 0 0}
+/* users */
+.one{
+    color-scheme: light dark;
+    --sand: #E8C39E;
+    --gold: #DAA520;
+    --rust: #D36228;
+    --brick: #B3342C;
+    --cocoa: #442F23;
+    --cream: #F5E5C0;
+    --e: cubic-bezier(.22,1,.36,1);
+    --display: 'Caprasimo','Cooper Black',Georgia,serif;
+    --script: 'Kaushan Script','Brush Script MT',cursive;
+    --sans: 'Inter',system-ui,sans-serif;
+    --paper: #2a1d15;
+    --text: #F5E5C0;
+    --card: #38271c;
+    font-family: var(--sans);
+    color: var(--text);
+    box-sizing: inherit;
+    padding: 6rem 0 3rem;
+}
 /* cta */
 .cta{background:var(--rust);color:var(--cream);text-align:center;padding:5rem 1rem 4.5rem;position:relative;overflow:hidden;margin-top:-1px}
 .cta h2{font-size:clamp(3rem,13vw,10rem);margin:.2rem 0}.cta h2 em{color:var(--cocoa)}
