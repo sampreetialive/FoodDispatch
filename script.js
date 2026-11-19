@@ -23,11 +23,11 @@ const M=['Order in under 30 seconds','Live driver position','Live ETA','Placed t
 $('#mq').innerHTML=M.map(t=>`<span>${t}</span><span><i>✺</i></span>`).join('').repeat(4);
 // restaurants (sample data)
 const R=[["alfredo","Trattoria Verde","Italian","#E8C39E",1.4,25],["omelette","Morning Pan Café","Café","#F5E5C0",0.8,15],["dal-makhani","Dhaba Junction","Indian","#DAA520",2.1,30],["salad","Green Bowl Co.","Café","#6E6F33",1.1,20],["dumplings","Little Dumpling House","Asian","#F2725B",3.2,35],["mutton-curry","Masala Haveli","Indian","#B3342C",2.8,40],["dal","Tadka Tiffins","Indian","#E8C39E",4.6,35],["tom-kha","Bangkok Lane","Asian","#4E6E58",3.9,30]];
-let cu='All',rad=5,cart=+(localStorage.getItem('fooddispatch_cart')||0);const cb=$('#cart');cb.textContent=cart;
+let cu='All',rad=5;
 function chip(box,vals,cur,fn){vals.forEach(v=>{const b=document.createElement('button');b.textContent=typeof v=='number'?v+' km':v;b.setAttribute('aria-pressed',v==cur);b.onclick=()=>{[...box.querySelectorAll('button')].forEach(x=>x.setAttribute('aria-pressed',x==b));fn(v)};box.append(b)})}
 chip($('#cu'),['All','Indian','Italian','Asian','Café'],cu,v=>{cu=v;draw()});chip($('#rd'),[1,2,3,5],rad,v=>{rad=v;draw()});
 function draw(){const l=R.filter(r=>(cu=='All'||r[2]==cu)&&r[4]<=rad);$('#grid').innerHTML=l.length?l.map((r,i)=>`<article class="card rv" style="--d:${i}"><div class="t" style="background:${r[3]}"><img src="${IMG[r[0]]}" alt=""></div><small>${r[2]} · ${r[4]} km · ${r[5]} min</small><h3>${r[1]}</h3><div class="row"><button class="btn" data-add>Order now</button></div></article>`).join(''):'<p class="empty">No restaurants in range. Try a larger delivery radius.</p>';requestAnimationFrame(()=>watch($('#grid')))}
-draw();$('#grid').onclick=e=>{if(e.target.matches('[data-add]')){cart++;try{localStorage.setItem('fooddispatch_cart',cart)}catch(_){}cb.textContent=cart;cb.classList.add('bump');setTimeout(()=>cb.classList.remove('bump'),250)}};
+draw();
 // promise word reveal
 const big=$('#big');big.innerHTML=[...big.childNodes].map(n=>n.nodeType==3?n.textContent.split(/\s+/).filter(Boolean).map(w=>`<span class="wd">${w}</span>`).join(' '):`<span class="g">${n.textContent.split(' ').map(w=>`<span class="wd">${w}</span>`).join(' ')}</span>`).join(' ');
 const wds=[...big.querySelectorAll('.wd')];
