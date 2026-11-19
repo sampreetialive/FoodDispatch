@@ -42,7 +42,7 @@
 <h2 class="rv">One interface. <em>Every role.</em></h2>
 <p class="lead rv">No separate apps to download. Customers, restaurants and delivery partners all log in from the same place, on a laptop or a phone.</p>
 <div class="cmp"><div class="old rv"><b>The usual way</b><s>A customer app, a restaurant app and a driver app. Three downloads, three screens, no shared picture of the order.</s></div><div class="new rv" style="--d:1"><b>FoodDispatch</b>One link. Pick your role and you are in. Everyone sees the same live order record.</div></div>
-<div class="roles"><div class="role rv" style="background:#F2725B"><div class="ic"><img src="assets/icon-customer.png" alt=""></div><h3>Customer</h3><p>Order, track and know when it arrives.</p></div><div class="role rv" style="background:#DAA520;--d:1"><div class="ic"><img src="assets/icon-restaurant.png" alt=""></div><h3>Restaurant</h3><p>See the order queue. Accept, prepare, mark Ready.</p></div><div class="role rv" style="background:#E8C39E;--d:2"><div class="ic"><img src="assets/icon-delivery.png" alt=""></div><h3>Delivery partner</h3><p>Accept, pick up and deliver nearby orders.</p></div></div>
+<div class="roles"><div class="role rv" style="background:#F2725B"><div class="ic"><i class="cu" aria-hidden="true"></i></div><h3>Customer</h3><p>Order, track and know when it arrives.</p></div><div class="role rv" style="background:#DAA520;--d:1"><div class="ic"><i class="re" aria-hidden="true"></i></div><h3>Restaurant</h3><p>See the order queue. Accept, prepare, mark Ready.</p></div><div class="role rv" style="background:#E8C39E;--d:2"><div class="ic"><i class="de" aria-hidden="true"></i></div><h3>Delivery partner</h3><p>Accept, pick up and deliver nearby orders.</p></div></div>
 </div></section>
 <section class="track" id="track"><div class="wrap"><div class="tg">
 <div><div class="eyebrow"><b>05</b> Live tracking</div><h2>Watch it <em>arrive.</em></h2>
@@ -58,7 +58,11 @@
 <section class="login" id="login"><div class="wrap">
 <div class="eyebrow rv"><b>07</b> Log in</div>
 <h2 class="rv">Choose how to <em>log in.</em></h2>
-<form id="lf" class="rv" onsubmit="return false"><fieldset><legend>Log in as</legend></fieldset>
+<form id="lf" class="rv" onsubmit="return false"><fieldset><legend>Log in as</legend>
+      <label class="opt" style="--c:#F2725B"><input type="radio" name="role" value="Customer" checked><div class="ic"><i class="cu" aria-hidden="true"></i></div><h3>Customer</h3><p>Order food and follow it live.</p></label>
+      <label class="opt" style="--c:#DAA520"><input type="radio" name="role" value="Restaurant"><div class="ic"><i class="re" aria-hidden="true"></i></div><h3>Restaurant</h3><p>Manage the order queue.</p></label>
+      <label class="opt" style="--c:#E8C39E"><input type="radio" name="role" value="Delivery partner"><div class="ic"><i class="de" aria-hidden="true"></i></div><h3>Delivery partner</h3><p>Pick up and deliver orders.</p></label>
+    </fieldset>
 <div class="lgo"><button class="btn" id="go" type="submit">Continue as Customer →</button><p id="lm" role="status" aria-live="polite"></p></div></form>
 <small>Demo only: this is a role selector, not a real account system.</small>
 </div></section>
