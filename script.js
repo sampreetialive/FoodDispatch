@@ -14,7 +14,7 @@ im.style.transform=`translateX(calc(-50% + ${c*sp*w}px)) scale(${o?.84:1}) rotat
 if(im.style.transition==='none'){im.offsetWidth;im.style.transition=''}});
 const d=H[k];hero.style.backgroundColor=d[2];hero.style.color=d[3];$('#cap').textContent=d[1]}
 const go=s=>{k=(k+s+H.length)%H.length;show()};
-const auto=()=>{clearInterval(tm);if(!rm)tm=setInterval(()=>go(1),4200)};
+const auto=()=>{clearInterval(tm);if(!rm)tm=setInterval(()=>go(1),2500)};
 $('#prev').onclick=()=>{go(-1);auto()};$('#next').onclick=()=>{go(1);auto()};
 hero.onmouseenter=()=>clearInterval(tm);hero.onmouseleave=auto;addEventListener('resize',()=>show());
 show(true);requestAnimationFrame(()=>requestAnimationFrame(()=>hero.classList.add('in')));auto();
