@@ -16,8 +16,7 @@ img{max-width:100%}a,button{font:inherit;color:inherit}
 nav{position:relative;z-index:5;display:flex;align-items:center;gap:1.8rem;padding:1.1rem clamp(1rem,3vw,2.5rem)}
 nav .logo{font-family:var(--display);font-size:1.25rem;text-decoration:none;margin-right:auto}
 nav a{text-decoration:none;font-size:.8rem;font-weight:500;opacity:.85;transition:opacity .3s}nav a:hover{opacity:1}
-.cart{min-width:42px;height:42px;border-radius:99px;border:0;background:rgba(255,255,255,.55);cursor:pointer;font-weight:600;font-size:.85rem;color:#442F23;transition:transform .3s var(--e)}
-.cart.bump{transform:scale(1.25)}
+
 .brand{font-family:var(--display);font-weight:400;line-height:.9;margin:0;text-align:center;font-size:12.3vw;letter-spacing:-.02em;position:relative;z-index:1;padding-top:3vh;will-change:transform}
 .brand .w{display:inline-block;white-space:nowrap}
 .brand .c{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
